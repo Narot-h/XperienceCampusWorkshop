@@ -248,12 +248,17 @@
    IMÁGENES DE LA GUÍA PASO A PASO
    ===================================================== */
 .step-image {
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-lg) auto;
   border-radius: var(--border-radius-large);
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
 }
 
 .step-image:hover {
@@ -263,10 +268,13 @@
 
 .guide-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: var(--border-radius-large);
   transition: transform 0.3s ease;
+  object-fit: contain;
+  background: var(--white);
 }
 
 .step-image:hover .guide-image {
@@ -431,33 +439,48 @@
 }
 
 /* Responsive para el modal */
+@media (max-width: 1024px) {
+  .step-content h3 {
+    font-size: var(--text-xl);
+  }
+  
+  .code-example {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 768px) {
   .image-modal {
-    padding: 20px;
+    padding: 15px;
   }
 
   .modal-content {
-    max-width: 95%;
-    max-height: 85vh;
+    max-width: 98%;
+    max-height: 90vh;
+    border-radius: 6px;
   }
 
   .modal-close {
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     font-size: 28px;
     width: 36px;
     height: 36px;
   }
 
   .image-zoom-hint {
-    font-size: 11px;
-    padding: 5px 10px;
+    font-size: 10px;
+    padding: 4px 8px;
     bottom: 8px;
     right: 8px;
   }
 
   .image-zoom-hint i {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .step-image {
+    margin: var(--spacing-md) 0;
   }
 }
 
@@ -699,6 +722,32 @@
 /* =====================================================
    RESPONSIVE DESIGN ESPECÍFICO
    ===================================================== */
+/* Tablets y dispositivos medianos */
+@media (max-width: 1024px) {
+  .contribute-container,
+  .validation-container,
+  .examples-container {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .step {
+    padding: var(--spacing-xl);
+  }
+
+  .step-content h3 {
+    font-size: var(--text-xl);
+  }
+
+  .code-example pre {
+    font-size: 13px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+  }
+}
+
+/* Móviles y dispositivos pequeños */
 @media (max-width: 768px) {
   .step {
     flex-direction: column;
